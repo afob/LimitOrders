@@ -1,6 +1,9 @@
 package org.afob.execution;
 
+import java.util.logging.Logger;
+
 public final class ExecutionClient {
+    private static final Logger LOGGER = Logger.getLogger(ExecutionClient.class.getName());
 
     /**
      * Execute a buy order
@@ -9,7 +12,11 @@ public final class ExecutionClient {
      * @throws ExecutionException
      */
     public void buy(String productId, int amount) throws ExecutionException {
-        throw new ExecutionException("failed to buy: environment error");
+        try {
+            LOGGER.info("Buying " + amount + " units of " + productId);
+        } catch (Exception e) {
+            throw new ExecutionException("Failed to buy: " + e.getMessage());
+        }
     }
 
     /**
@@ -19,9 +26,12 @@ public final class ExecutionClient {
      * @throws ExecutionException
      */
     public void sell(String productId, int amount) throws ExecutionException {
-        throw new ExecutionException("failed to sell: environment error");
+        try {
+            LOGGER.info("Selling " + amount + " units of " + productId);
+        } catch (Exception e) {
+            throw new ExecutionException("Failed to sell: " + e.getMessage());
+        }
     }
-
 
     public static class ExecutionException extends Exception {
         public ExecutionException(String message) {
@@ -32,5 +42,4 @@ public final class ExecutionClient {
             super(message, cause);
         }
     }
-
 }
