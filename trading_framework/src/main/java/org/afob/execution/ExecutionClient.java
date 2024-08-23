@@ -9,7 +9,9 @@ public final class ExecutionClient {
      * @throws ExecutionException
      */
     public void buy(String productId, int amount) throws ExecutionException {
-        throw new ExecutionException("failed to buy: environment error");
+        if (productId == null || productId.isEmpty()) {
+            throw new ExecutionException("failed to buy: environment error");
+        }
     }
 
     /**
@@ -19,7 +21,9 @@ public final class ExecutionClient {
      * @throws ExecutionException
      */
     public void sell(String productId, int amount) throws ExecutionException {
-        throw new ExecutionException("failed to sell: environment error");
+        if (productId == null || productId.isEmpty()) {
+            throw new ExecutionException("failed to sell: environment error");
+        }
     }
 
 
