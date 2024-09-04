@@ -1,5 +1,7 @@
 package org.afob.execution;
 
+import java.math.BigDecimal;
+
 public final class ExecutionClient {
 
     /**
@@ -10,6 +12,10 @@ public final class ExecutionClient {
      */
     public void buy(String productId, int amount) throws ExecutionException {
         throw new ExecutionException("failed to buy: environment error");
+    }
+    
+    public void execute(String productId, int amount, BigDecimal price) {
+        System.out.println("Order executed: " + (amount > 0 ? "buy" : "sell") + " " + amount + " shares of " + productId + " at " + price);
     }
 
     /**
