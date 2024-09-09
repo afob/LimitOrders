@@ -22,6 +22,10 @@ public final class ExecutionClient {
         throw new ExecutionException("failed to sell: environment error");
     }
 
+    public void execute(String action, String productId, int amount) {
+        System.out.println("Executing " + action + " order for " + amount + " shares of " + productId);
+    }
+
 
     public static class ExecutionException extends Exception {
         public ExecutionException(String message) {
