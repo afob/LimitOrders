@@ -1,6 +1,6 @@
 package org.afob.execution;
 
-public final class ExecutionClient {
+public class ExecutionClient {
 
     /**
      * Execute a buy order
